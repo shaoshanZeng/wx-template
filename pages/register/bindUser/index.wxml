@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="page bind-container">
+  <form bindsubmit="btnBindPhone">
+    <view class='bind-user-info'>
+      <image src="/images/logo.png" class="logo-img"></image>
+      <view class="input-box">
+        <input class="input" placeholder="手机号码" bindinput="phoneInput" maxlength="11" name="phone" value="{{phone}}" />
+      </view>
+      <view class="code-box">
+        <input class="input" name="code" placeholder="验证码" bindinput="codeInput" value="{{code}}" />
+        <view class="{{codeClass}}" bindtap="getCode" >{{codeText}}</view>
+      </view>
+          <view class="input-box">
+      <input class="input" placeholder="姓名" bindinput="nameInput" maxlength="20" name="username" value="{{username}}" />
+    </view> 
+    </view>
+    <button class='form-submit-btn' style="width:90%" form-type="submit" disabled="{{isDisabled}}"> 绑定帐号登录</button>
+  </form>
+</view>

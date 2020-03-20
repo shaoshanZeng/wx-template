@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/index",
+    "pages/my/index",
+    "pages/welcome/index",
+    "pages/register/bindUser/index"
+  ],
+  "subpackages": [
+    {
+      "root": "list",
+      "name": "list",
+      "pages": [
+        "pages/add/index",
+        "pages/detail/index"
+      ]
+    }
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/list/index",
+        "text": "列表",
+        "iconPath": "images/deal.png",
+        "selectedIconPath": "images/deal-active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-active.png"
+      }
+    ],
+    "selectedColor": "#4166F5"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+   
+  ],
+   
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#206ce8",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 150
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

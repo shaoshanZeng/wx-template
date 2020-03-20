@@ -1,0 +1,215 @@
+/**app.wxss**/
+@import './iconfont.wxss';
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  font-family: Microsoft YaHei, Heiti SC, "Helvetica Neue", Helvetica, sans-serif;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: #f5f5f5;
+  color: #353535;
+}
+
+/* 暂无数据 */
+
+.none-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 500rpx;
+}
+
+.none-box .img {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.none-box .tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 表单 */ 
+.form-container .form-container-title {
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #f3f3f3;
+  color: #a4a4a4;
+  text-indent: 30rpx;
+  font-size: 28rpx;
+}
+.form-container .form-container-box {
+  background: #fff;
+  padding: 0 30rpx;
+}
+.form-container .form-container-box .form-item {
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+  display: flex;
+  align-items: center;
+}
+.form-container .form-container-box .form-item .form-item-label {
+  font-size: 28rpx;
+  padding-right: 60rpx;
+}
+.form-container .form-container-box .form-item .form-item-label .form-required {
+  color: #f02727;
+}
+.form-container .form-container-box .form-item .form-item-content {
+  font-size: 28rpx;
+  color: #999;
+  flex: 1;
+}
+.form-container .form-container-box .form-item .form-item-content input {
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: right;
+}
+.form-container .form-container-box .form-item .form-item-content .picker-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 28rpx;
+}
+.form-container .form-container-box .form-item:last-child,
+.form-container .form-container-box .form-item-plus:last-child {
+  border: 0;
+}
+.form-container .form-container-box .form-item-plus {
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+  font-size: 28rpx;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-label {
+  padding: 15rpx 0;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-label .form-required {
+  color: #f02727;
+  margin-left: 10rpx;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-label .title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-label .title-box .title-box-content .iconfont {
+  color: #999;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-content {
+  display: flex;
+}
+.form-container .form-container-box .form-item-plus .form-item-plus-content .form-textarea {
+  min-height: 200rpx;
+  width: 100%;
+  font-size: 28rpx;
+}
+.form-container .form-container-box .form-item-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:50rpx;
+  line-height:50rpx;
+}
+.form-container .form-container-box .form-item-checkbox .form-checkbox-content {
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.form-container .form-container-box .form-item-checkbox .form-checkbox-content .form-checkbox {
+  position: absolute;
+  left: -19998rpx;
+}
+.form-container .form-container-box .form-item-checkbox .form-checkbox-icon {
+  position: absolute;
+  top: 0;
+  margin-left: 10rpx;
+  transform: scale(0.8);
+}
+.form-container .form-container-box .form-item-checkbox .form-checkbox-name {
+  margin-left: 60rpx;
+  font-size: 28rpx;
+}
+.form-container .form-container-box .form-item-uploader {
+  padding: 12rpx 0;
+}
+.form-container .form-container-box .form-item-uploader .form-uploader-files .form-uploader-file {
+  position: relative;
+  float: left;
+  margin: 0 15rpx 15rpx 0;
+}
+.form-container .form-container-box .form-item-uploader .form-uploader-files .form-uploader-file .form-uploader-img {
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+}
+.form-container .form-container-box .form-item-uploader .form-uploader-files .form-uploader-file .form-uploader-del { 
+  top: 0;
+  right: 0;
+  color: #de3b3b;
+  position: absolute;
+  z-index: 1000;
+}
+.form-container .form-container-box .form-item-uploader .form-uploader-box {
+  border: 1px solid #d9d9d9;
+  width: 158rpx;
+  height: 158rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-container .form-container-box .form-item-uploader .form-uploader-box .iconfont {
+  font-size: 50rpx;
+  color: #d9d9d9;
+}
+.form-submit-btn {
+  background: #4699f8;
+  color: #fff;
+  margin: 60rpx auto;
+  width:90%;
+  font-weight: lighter;
+  box-shadow: 0 12rpx 12rpx #c4c4c4;
+}
+
+
+/* 暂无数据 */
+.none-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 500rpx;
+}
+.none-box .img {
+  width: 240rpx;
+  height: 240rpx;
+}
+.none-box .tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 标题 */
+.container-title-box {
+  background-color: #fff;
+  border-bottom: 2rpx solid #f1f1f1;
+  height: 75rpx;
+  line-height: 75rpx;
+  padding-left: 20rpx;
+}
+.container-title-name {
+  border-left: 6rpx solid #2189f7;
+  font-size: 28rpx;
+  padding-left: 15rpx;
+  font-weight: bold;
+}

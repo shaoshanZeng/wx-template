@@ -1,0 +1,98 @@
+<view>
+  <view class="order-container">
+		<view class="work-menu">
+			<scroll-view
+				class="scroll-view-menu"
+				scroll-x="true"
+				scroll-left="{{scrollLeft}}"
+				style="width: 100%"
+			>
+				<view
+					wx:for="{{tabs}}"
+					wx:for-item="item" wx:for-index="index" wx:key="index"
+          data-status="{{item.status}}"
+          data-index="{{index}}"
+					bindtap="tabClick"
+					class="scroll-view-item {{activedIndex == index?'actived':''}}"
+				>
+					<view class="scroll-view-item-title">{{item.name}}</view>
+					<text class="scroll-view-item-badge" wx:if="{{item.count && item.count != 0}}">{{item.count}}</text>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="order-main">
+			<swiper
+				 autoplay="{{autoplay}}"
+				data-current="{{activedIndex}}"
+				bindchange="swiperChange"
+				style="height: 100vh"
+			>
+				<view wx:for="{{tabs}}" 	wx:for-item="item" wx:for-index="index" wx:key="index">
+					<swiper-item>
+						<view style="height:100%;">
+							<scroll-view
+								enable-back-to-top
+								scroll-anchoring
+								scroll-y="true"
+								style="height: 100%"
+								lower-threshold="100"
+							>
+								<view wx:for="{{orderList}}" 	wx:for-item="item"  wx:key="index" class="order-main-item" >
+									<view class="order-main-item-title">
+											<icon class="iconfont icon-shijian"></icon>要求
+											<text class="col-org">{{item.slarule || '--'}}分钟内</text>解决，当前剩余
+											<text class="col-org">{{item.second1 || '--'}}</text>
+										</view>
+									<view class="order-main-item-info" bindtap="goToDetail" data-id="{{item.id}}">
+										<view class="item-info-box">
+											<text class="info-title">工单编号</text>
+											<text class="info-content">{{item.orderno || '--'}}</text>
+										</view>
+										<view class="item-info-box">
+											<text class="info-title">故障现象</text>
+											<text class="info-content">{{item.gdzt || '--'}}</text>
+										</view>
+										<view class="item-info-box">
+											<text class="info-title">机构组织</text>
+											<text class="info-content">{{item.bxjgmc || '--'}}</text>
+										</view>
+										<view class="item-info-box">
+											<text class="info-title">故障位置</text>
+											<text class="info-content">{{item.address || '--'}}</text>
+										</view>
+										<view v-if="status != 40" class="item-info-box">
+											<text class="info-title">处理时间</text>
+											<text class="info-content">{{item.createdate}}</text>
+										</view> 
+									</view>
+								 	<div class="button-box">
+											<button type="default" class="submit-btn" >抢单</button>
+										</div>
+								</view>
+								<!-- 加载完成 -->
+								<view class="loadmore-container" v-if="isFinish">
+									<view class="loadmore-tips">加载完成</view>
+								</view>
+								<!-- 无数据 -->
+								<template v-if="orderList.length == 0">
+									<view class="none-box">
+										<view>
+											<iconmg class="img" src="/static/images/none.png" />
+										</view>
+										<p class="tip">暂无数据</p>
+									</view>
+								</template>
+							</scroll-view>
+						</view>
+					</swiper-item>
+				</view>
+			</swiper>
+		</view>
+
+		<ul class="quicker-btn-box">
+			<navigator url="/list/pages/add/index" class="item" >
+			+
+		</navigator> 
+		</ul>
+	</view>
+</view>

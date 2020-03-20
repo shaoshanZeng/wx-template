@@ -1,0 +1,79 @@
+/**index.wxss**/
+
+.bind-container {
+  height: 100vh;
+  background: #fff;
+}
+
+.bind-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+}
+
+.logo-img {
+  height: 200rpx;
+  width: 200rpx;
+  margin: 80rpx 0 40rpx 0;
+}
+
+.btn-login {
+  width: 90%;
+  margin-top: 60rpx;
+  background-color: #d11b1f;
+  box-shadow: 0 6px 6px #c4c4c4;
+  color: #fff;
+}
+
+.input-box {
+  border-bottom: 2rpx solid #f1f1f1;
+  margin: auto;
+  width: 90%;
+}
+
+.input-box .input {
+  font-size: 32rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+ 
+.code-box {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  border-bottom:2rpx solid #f1f1f1;
+}
+
+.code-box .input {
+  font-size: 32rpx;
+  flex: 2;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+}
+
+.code-box .obtain {
+  width: 200rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
+  border-radius: 70rpx;
+  background: #fff;
+  color: #4699f8;
+  border: 2rpx solid #4699f8;
+}
+
+.obtain-cantuse {
+   width: 200rpx;
+   text-align: center;
+  height: 70rpx;
+  font-size: 26rpx;
+  line-height: 70rpx;
+  border-radius: 70rpx;
+  background-color: #ccc;
+  color: #fff;
+}

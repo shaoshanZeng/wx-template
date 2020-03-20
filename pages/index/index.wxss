@@ -1,0 +1,129 @@
+.home-container .menu-container {
+  margin-bottom: 20rpx;
+}
+.home-container .menu-container .menu-grids {
+  border-top: 1rpx solid #d9d9d9;
+  border-left: 1rpx solid #d9d9d9;
+  overflow: hidden;
+}
+.home-container .menu-container .menu-grids .menu-grid {
+  background: #fff;
+  border-right: 1rpx solid #f1f1f1;
+  border-bottom: 1rpx solid #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  padding: 40rpx 20rpx;
+  width: 33.33333333%;
+  box-sizing: border-box;
+}
+.home-container .menu-container .menu-grid-icon {
+  width: 88rpx;
+  text-align: center;
+}
+.home-container .menu-container .menu-grid-icon .iconfont {
+  height: 56rpx;
+}
+.home-container .menu-container .menu-grid-icon .icon1 {
+  color: #f59c26;
+  font-size: 56rpx;
+  margin-left: -24rpx;
+}
+.home-container .menu-container .menu-grid-icon .icon2 {
+  color: #13bbad;
+  font-size: 50rpx;
+}
+.home-container .menu-container .menu-grid-icon .icon3 {
+  color: #8078f1;
+  font-size: 52rpx;
+}
+.home-container .menu-container .menu-grid-icon .icon4 {
+  color: #e583c1;
+  font-size: 50rpx;
+}
+.home-container .menu-container .menu-grid-name {
+  color: #555555;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+@keyframes dong {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -715rpx, 0);
+    transform: translate3d(0, -715rpx, 0);
+  }
+}
+.home-container .event-list {
+  background: #fff;
+  overflow: hidden;
+}
+.home-container .event-list .event-list-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70rpx;
+  padding: 0 20rpx;
+  background: #f5f6f7;
+}
+.home-container .event-list .event-list-title .item {
+  font-weight: bold;
+  font-size: 26rpx;
+}
+.home-container .event-list .event-list-title .item1 {
+  flex: 1.8;
+  margin-right: 8rpx;
+}
+.home-container .event-list .event-list-title .item2 {
+  flex: 1.8;
+  margin-right: 8rpx;
+}
+.home-container .event-list .event-list-title .item3 {
+  flex: 1;
+}
+.home-container .event-list .event-list-container {
+  height: 400rpx;
+  overflow: hidden;
+}
+.home-container .event-list .event-list-container .none-box {
+  height: 400rpx;
+}
+.home-container .event-list .event-list-container .event-list-main {
+  padding: 0 20rpx;
+  overflow: hidden;
+  position: relative;
+}
+.home-container .event-list .event-list-container .event-list-main .event-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #666;
+  height: 70rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.home-container .event-list .event-list-container .event-list-main .event-list-item .item {
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.home-container .event-list .event-list-container .event-list-main .event-list-item .item1 {
+  flex: 1.8;
+  color: #4498f0 !important;
+  margin-right: 8rpx;
+}
+.home-container .event-list .event-list-container .event-list-main .event-list-item .item2 {
+  flex: 1.8;
+  margin-right: 8rpx;
+}
+.home-container .event-list .event-list-container .event-list-main .event-list-item .item3 {
+  flex: 1;
+}
+.home-container .event-list .event-list-container .event-list-animation {
+  animation: dong 12s linear infinite normal;
+}

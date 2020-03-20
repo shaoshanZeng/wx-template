@@ -1,0 +1,5 @@
+<view class="welcome-container"> 
+<view>
+ <button class='btn-login' disabled="{{isDisabled}}"  open-type="getUserInfo" bindgetuserinfo="submitLogin">立即登录</button>
+</view>
+</view>

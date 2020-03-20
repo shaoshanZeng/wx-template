@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1702848 */
+  src: url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.eot');
+  src: url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1702848_vscr2bb6ppg.svg#iconfont') format('svg');
+}
+
+ 
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chahao:before {
+  content: "\e609";
+}
+
+.icon-xiangyou-copy:before {
+  content: "\e623";
+}
+
+.icon-xiangyou:before {
+  content: "\e638";
+}
+
+.icon-weizhi:before {
+  content: "\e64b";
+}
+
+.icon-icon-test:before {
+  content: "\e61e";
+}
+
+.icon-minqing:before {
+  content: "\e63d";
+}
+
+.icon-kefu:before {
+  content: "\e63f";
+}
+
+.icon-fankui:before {
+  content: "\e702";
+}
+
+.icon-phone1:before {
+  content: "\e616";
+}
+
+.icon-shouce:before {
+  content: "\e898";
+}
+
+ 

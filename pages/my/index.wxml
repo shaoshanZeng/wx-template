@@ -1,0 +1,82 @@
+<view class='my-container'>
+  <view class="header-top">
+    <view class="header-top-photo">
+      <image src="{{headerPhoto}}" style="background-size:cover;width:140rpx;height:140rpx;border-radius:50%;"></image>
+    </view>
+    <view class="header-top-name">
+      <view>{{username}}</view>
+      <view style="color:#666;">{{mobile}}</view>
+      <view>
+      </view>
+    </view>
+  </view>
+
+  <view class="navigate-box">
+    <navigator url="" class="navigate-box-item">
+      <view class="navigate-box-item-label">
+        <icon class="iconfont icon-shouce"></icon>
+        <text>快捷指南</text>
+      </view>
+      <view class="navigate-box-item-icon">
+        <icon class="iconfont icon-xiangyou"></icon>
+      </view>
+    </navigator>
+    <navigator class="navigate-box-item" target="miniProgram" path="" app-id="{{ appId }}" extra-data="{{ extraData }}" version="release">
+      <view class="navigate-box-item-label">
+        <icon class="iconfont icon-fankui"></icon>
+        <text>我要反馈</text>
+      </view>
+      <view class="navigate-box-item-icon">
+        <icon class="iconfont icon-xiangyou"></icon>
+      </view>
+    </navigator>
+    <navigator url="" class="navigate-box-item">
+      <view class="navigate-box-item-label">
+        <icon class="iconfont icon-phone1"></icon>
+        <button class="navigate-box-item-label">
+          <text>联系我们</text>
+        </button>
+      </view>
+
+      <view class="navigate-box-item-icon">
+        <icon class="iconfont icon-xiangyou"></icon>
+      </view>
+    </navigator>
+    <navigator class="navigate-box-item">
+      <view class="navigate-box-item-label">
+        <icon class="iconfont icon-kefu"></icon>
+        <button open-type="contact">
+          <text>客服</text>
+        </button>
+      </view>
+
+      <view class="navigate-box-item-icon">
+        <icon class="iconfont icon-xiangyou"></icon>
+      </view>
+    </navigator>
+    <navigator class="navigate-box-item" url="">
+      <view class="navigate-box-item-label">
+        <icon class="iconfont icon-minqing"></icon>
+        <button class="navigate-box-item-label contact-btn">
+          <text>更新日志</text>
+        </button>
+      </view>
+
+      <view class="navigate-box-item-icon">
+        <icon class="iconfont icon-xiangyou"></icon>
+      </view>
+    </navigator>
+  </view>
+  <view class="my-bottom">
+    <navigator url="" class="navigate-box-item">
+      <view class="item">切换账号</view>
+    </navigator>
+    <navigator url="" class="navigate-box-item">
+      <view class="item">退出登录</view>
+    </navigator>
+  </view>
+  <view class="my-footer">
+    <view>技术支持：xxx有限公司</view>
+    <view>联系电话：xxx</view>
+  </view>
+</view>

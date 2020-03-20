@@ -1,0 +1,100 @@
+<view class="form-container">
+  <view class="form-container-title">报修信息</view>
+  <view class="form-container-box">
+    <view class="form-item">
+      <view class="form-item-label">
+        报修机构
+        <span class="form-required">*</span>
+      </view>
+      <view class="form-item-content">
+        <picker bindchange="bxjgPickerChange" :value="bxjgIndex" :range="bxjgArray">
+          <view class="picker-box">
+            <span>{{bxjgArray[bxjgIndex]?bxjgArray[bxjgIndex]:'请选择'}}</span>
+            <i class="iconfont icon-xiangyou-copy"></i>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        故障主题
+        <span class="form-required">*</span>
+      </view>
+      <view class="form-item-content">
+        <input type="text" value="{{txtgzzt}}" placeholder-class="col-999" bindinput="txtgzztInput" placeholder="请输入故障主题" />
+      </view>
+    </view>
+    <!--故障位置-->
+    <view class="form-item-plus">
+      <view class="form-item-plus-label">
+        <picker mode="multiSelector" bindcolumnchange="bindColumnChange" bindchange="pickerChange" value="{{selectIndex}}" range="{{selectList}}">
+          <view class="title-box">
+            <view class="title-box-title">
+              <text>故障位置</text>
+              <text class="form-required">*</text>
+            </view>
+            <view class="title-box-content">
+              <text class="iconfont icon-weizhi"></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="form-item-plus-content">
+        <textarea rows="3" placeholder-class="col-999" value="{{gzwzAddress}}" bindinput="gzwzAddressInput" class="form-textarea" placeholder="请输入故障位置" />
+      </view>
+    </view>
+    <!-- 上传图片 -->
+    <view class="form-item-plus">
+      <view class="form-item-label">附件图片</view>
+      <view class="form-item-uploader">
+        <view class="form-uploader-files">
+          <block wx:if="{{files.length > 0}}">
+          <view wx:for="{{files}}"   wx:for-item="item" wx:key="index">
+            <view class="form-uploader-file" bindtap="previewImage" data-id="{{item}}">
+              <image class="form-uploader-img"  src="{{item}}" mode="aspectFill" />
+              <span class="form-uploader-del iconfont icon-chahao" bindtap="closeImage" data-item="{{(item)}}"></span>
+            </view>
+            </view>
+          </block>
+        </view>
+        <view class="form-uploader-box" bindtap="chooseImage">
+          <span class="iconfont icon-icon-test"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-container-title">流程操作</view>
+  <view class="form-container-box">
+    <view class="form-item">
+      <view class="form-item-label">
+        工单状态
+        <span class="form-required">*</span>
+      </view>
+      <checkbox-group bindchange="checkboxChange" class="form-item-checkbox">
+        <label class="form-checkbox-content" wx:for="{{checkboxItems}}" wx:for-item="item" wx:key="index">
+          <checkbox class="form-checkbox" value="{{item.value}}" checked="{{item.checked}}" />
+          <view>
+            <icon class="form-checkbox-icon" color="#206CE8" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+            <icon class="form-checkbox-icon" color="#206CE8" type="success" size="23" wx:if="{{item.checked}}"></icon>
+          </view>
+          <view class="form-checkbox-name">{{ item.name }}</view>
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="form-item-plus">
+      <view class="form-item-plus-label">
+        <view class="title-box">
+          <view class="title-box-title">
+            <text>解决方案</text>
+            <text class="form-required">*</text>
+          </view>
+        </view>
+      </view>
+      <view class="form-item-plus-content">
+        <textarea value="{{txtjjfa}}" bindinput="txtjjfaInput" class="form-textarea" placeholder="请填写200字以内的说明" />
+      </view>
+    </view>
+  </view>
+  <button style="width:90%;" :disabled="isDisabled"  class="form-submit-btn" bindtap="submit">提交</button>
+</view>

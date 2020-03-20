@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="home-container">
+  <!--菜单-->
+  <view class="menu-container">
+    <view class="menu-grids">
+      <block wx:for="{{grids}}" wx:for-item="item" wx:key="index">
+        <navigator url="{{item.url}}" class="menu-grid">
+          <view class="menu-grid-icon">
+            <i class="{{item.src}}"></i>
+          </view>
+          <view class="menu-grid-name">{{ item.name }}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <!--事件动态-->
+  <view class="container-title-box">
+    <span class="container-title-name">事件动态</span>
+  </view>
+  <view class="event-list">
+    <view class="event-list-title">
+      <view class="item item1">故障位置</view>
+      <view class="item item2">故障现象</view>
+      <view class="item item3">状态</view>
+    </view>
+    <view class="event-list-container">
+      <block wx:if="{{newNoticeList.length == 0}}">
+        <view class="none-box">
+          <view>
+            <image class="img" src="/images/none.png"> </image>
+          </view>
+          <p class="tip">暂无数据</p>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="event-list-main {{newNoticeList.length > 6? 'event-list-animation': ''}}">
+          <view class="event-list-item" wx:for="item in newNoticeList" wx:for-item="item" wx:key="item">
+            <view class="item item1">深圳市第三人民医院门诊科101</view>
+            <view class="item item2">打印机坏了</view>
+            <view class="item item3">待接单</view>
+          </view>
+
+          <view class="event-list-item" wx:for="item in newNoticeList" wx:for-item="item" wx:key="item">
+            <view class="item item1">深圳市第三人民医院门诊科101</view>
+            <view class="item item2">打印机坏了</view>
+            <view class="item item3">待接单</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
