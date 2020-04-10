@@ -1,1 +1,7 @@
 /* list/pages/detail/index.wxss */
+/* 圆角tab选项 */
+.navbar{width:500rpx;height:64rpx;margin:15px auto;text-align: center;display: flex;flex-direction: row;}
+.navbar .tab{flex:1;border:solid 1px #e31d1a;color: #e31d1a;font-size:28rpx;height:64rpx;line-height: 64rpx;background: #fff;margin-left:-2px;}
+.navbar .tab:first-child{border-radius:4px 0 0 4px;}   
+.navbar .tab:last-child{border-radius:0 4px 4px 0;} 
+.navbar .tab.active{background: #e31d1a;color:#fff;}

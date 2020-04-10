@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "none-box": "/components/noneBox/index"
+  }
+}

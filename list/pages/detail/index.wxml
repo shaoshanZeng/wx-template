@@ -1,0 +1,16 @@
+<view class="detail-container">
+    <view class="navbar flex">
+      <view id="0" data-name="诉求详情" class="tab {{activeIndex == 0 ? 'active' : ''}}" bindtap="tabClick">诉求详情</view>
+      <view id="1" data-name="诉求跟踪" class="tab {{activeIndex == 1 ? 'active' : ''}}" bindtap="tabClick">诉求跟踪</view>
+    </view>
+  <view> 
+    <!-- 诉求详情 -->
+    <view hidden="{{activeIndex != 0}}">
+     <detailmain detailList="{{detailList}}"></detailmain> 
+    </view>
+    <!-- 诉求跟踪 -->
+    <view  hidden="{{activeIndex != 1}}">
+      <detailprocess processList="{{processList}}" imgArr="{{imgArr}}"></detailprocess> 
+    </view> 
+  </view>
+</view> 

@@ -1,0 +1,143 @@
+ <view class="detail-info-container">
+        <view class="detail-info-box">
+          <view class="detail-info-box-item">
+            <text class="title ">姓名</text>
+            <text class="sub txt-ellipsis">{{detailList.pname || '--'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title ">地址</text>
+            <text class="sub txt-ellipsis">{{detailList.paddress || '--'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title ">联系电话</text>
+            <text class="sub txt-ellipsis">{{detailList.ptel || '--'}}</text>
+          </view> 
+          <view class="detail-info-box-item">
+            <text class="title ">事件地点</text>
+            <text class="sub txt-ellipsis">{{detailList.address || '--'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title ">反馈时间</text>
+            <text class="sub txt-ellipsis">{{detailList.reporteddate || '--'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">附件图片</text>
+            <view class="sub txt-ellipsis">
+              <block wx:if="{{filedsList.length> 0}}">
+                <image wx:for="{{filedsList}}" data-urls="{{filedsList}}" wx:for-item="dImg" wx:for-index="idx" wx:key="idx" data-src="{{dImg}}" bindtap="imgYu" src="{{dImg}}" class="item" />
+              </block>
+              <block wx:else>
+                <text class="fs14">无</text>
+              </block>
+            </view>
+          </view>
+
+        </view>
+        <view class="detail-info-box mt20">
+          <view class="detail-info-box-item">
+            <text class="title">诉求类别</text>
+            <view class="sub">
+              {{detailList.kind == 2?'诉求':'建议'}}/{{detailList.subkindname}}/{{detailList.thirdkindname}}
+            </view>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">诉求标题</text>
+            <view class="sub txt-ellipsis">{{detailList.title}}</view>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">诉求内容</text>
+            <text class="sub">{{detailList.content}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">诉求编号</text>
+            <text class="sub txt-ellipsis  txt-ellipsis">{{detailList.tag}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">紧急程度</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:if="{{detailList.warninglevel == 2}}">紧急</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:elif="{{detailList.warninglevel == 3}}">特急</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:else>一般</text>
+          </view>
+        </view>
+        <view class="detail-info-box mt20">
+          <view class="detail-info-box-item">
+            <text class="title">当前状态</text>
+            <text class="sub txt-ellipsis  txt-ellipsis col-green">{{detailList.statusname}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">主办单位</text>
+            <text class="sub txt-ellipsis">
+                <block wx:if="{{zbxbList.length != 0}}">
+                     <text class="sub txt-ellipsis">{{zbxbList[0].ORGANNAME || '--'}}</text>
+            </block>
+            <block wx:else>
+              <text class="sub txt-ellipsis">--</text>
+            </block>
+            </text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">当前单位</text>
+            <view class="sub txt-ellipsis">
+              <block wx:if="{{zbxbList.length != 0}}">
+                <block wx:for="{{zbxbList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" wx:for-index="index">
+                  <block wx:if="{{item.ID == detailList.id}}">
+                    <text class="sub txt-ellipsis">{{item.ORGANNAME || '--'}} {{detailList.zbxbdept && !detailList.pid?'(主办)':'(协办)'}}     </text>
+
+                  </block>
+
+                </block>
+              </block>
+              <block wx:else>
+                <text class="sub txt-ellipsis">--</text>
+              </block>
+            </view>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">协办单位</text>
+            <view class="sub">
+              <block wx:if="{{zbxbList.length > 1}}">
+                <block wx:for="{{zbxbList}}" wx:key="idx" wx:for-item="item" wx:for-index="index">
+                  <text class="mr5" wx:if="{{index != 0}}">{{item.ORGANNAME || '--'}}</text>
+                </block>
+              </block>
+              <block wx:else>
+                <text class="sub txt-ellipsis">--</text>
+              </block>
+            </view>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">当前处理人</text>
+            <view class="sub">
+              <block wx:if="{{detailList.clrs.length != 0}}">
+                <block wx:for="{{detailList.clrs}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" wx:for-index="index">
+                  <text class="mr5">{{item || '--'}}</text>
+                </block>
+              </block>
+              <block wx:else>
+                <text class="sub txt-ellipsis">--</text>
+              </block>
+            </view>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">处理情况</text>
+            <text class="sub txt-ellipsis  txt-ellipsis  col-green">{{detailList.finishflag == 1?'当场答复':'送交区委组织部'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title">反映方式</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:if="{{detailList.sourcetype == 0}}">民意室</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:elif="{{detailList.sourcetype == 1}}">盐田网</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:elif="{{detailList.sourcetype == 2}}">民意通公众号</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:elif="{{detailList.sourcetype == 3}}">民意通小程序</text>
+            <text class="sub txt-ellipsis  txt-ellipsis" wx:else>--</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title ">接访工作室</text>
+            <text class="sub txt-ellipsis">{{detailList.acceptorgan || '--'}}</text>
+          </view>
+          <view class="detail-info-box-item">
+            <text class="title ">办理期限</text>
+            <text class="sub txt-ellipsis">{{detailList.finishdate || '--'}}</text>
+          </view>
+        </view>
+
+      </view>

@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/list/index",
+    "pages/list/index",  
     "pages/my/index",
     "pages/welcome/index",
     "pages/register/bindUser/index"
@@ -29,7 +29,7 @@
         "text": "列表",
         "iconPath": "images/deal.png",
         "selectedIconPath": "images/deal-active.png"
-      },
+      }, 
       {
         "pagePath": "pages/my/index",
         "text": "我的",

@@ -20,62 +20,44 @@ Page({
         url: "/"
       }
     ],
-    newNoticeList: [1,1,1,1,1,1,1]
+    newNoticeList: [1, 1, 1, 1, 1, 1, 1],
+    bannerList: []
+
+  },
+
+
+  // 处理收到websocket消息
+  async websocketResponse(result) {
+    console.log('这是在 home 页面中收到后端推送的消息，进行一些操作', result)
+    if (result.data == "flushhomelbt") {
+      this.getBanner();
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    // 在这界面添加监听者，接收socket消息
+    const watcherIndex = getApp().socket.addWatcher(this.websocketResponse);
+    this.setData({
+      watcherIndex
+    })
+    this.getBanner();
+  },
+  onHide() {
+    getApp().socket.delWatcher(this.data.watcherIndex)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  // 获取首页轮播图
+  async getBanner() { 
+    const {
+      data 
+      } = await getApp().request.get('/common/getLbtList', false, false, '', {});
+    if (data) {
+      this.setData({
+        bannerList: res.data
+      })
+    }
   }
 })

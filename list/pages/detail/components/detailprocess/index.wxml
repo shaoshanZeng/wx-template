@@ -1,0 +1,34 @@
+<view class="process-container">
+  <view wx:for="{{processList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" wx:for-index="index" class="{{index == 0?'process-box process-round-finish':'process-box'}}"> 
+    <view class="process-box-left">
+      <view class="process-box-left-icon">  
+      </view>
+      <view class="process-box-left-line"></view>
+    </view>
+    <view class="process-box-right">
+      <view class="process-box-right-top">
+        <text class="process-box-right-top-content">{{item.enumitemname}}</text>
+        <text class="process-box-right-top-date">04月03日 15:00</text>
+      </view>
+      <view class="process-box-right-bottom">
+        <view bindtap="showMore" class="remark-box {{isHide?'ellipsis':''}}" data-index="{{index}}">
+          <text>小鸭-</text>
+          <text>同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理同意办理</text>
+        </view>
+        <!-- 图片文件 -->
+        <view class="files-box">
+          <block wx:for="{{item.fileList}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+            <image wx:if="{{item.filetype == 'jpg' || item.filetype == 'jpeg' || item.filetype == 'png'  || item.filetype == 'gif'}}" class="weui-uploader__img  pr file-img" data-path="{{item.filepath}}" src="{{item.filepath}}" mode="aspectFill" bindtap='previewImg'
+            />
+
+          </block>
+        </view>
+        <block wx:for="{{item.fileList}}" wx:for-item="file" wx:for-index="idx" wx:key="idx">
+          <view wx:if="{{file.filetype =='docx' || file.filetype =='doc' || file.filetype =='xls' || file.filetype =='xlsx' || file.filetype == 'pdf'  || file.filetype == 'zip'}}">
+            <view bindtap="downLoadFile" data-path="{{file.filepath}}" class="file-txt">{{file.filename}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

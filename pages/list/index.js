@@ -9,57 +9,75 @@ Page({
     autoplay: false,
     activedIndex: 0,
     scrollLeft: 0,
+    scrollTop: 0,
     orderList: [{
-        "fwt": "28383b0320ce43558a7912158229845a",
-        "orderno": "gz202003180037",
-        "title": "工单",
-        "id": 1
-      },
-      {
-        "fwt": "28383b0320ce43558a7912158229845a",
-        "orderno": "gz202003180037",
-        "title": "工单",
-        "id": 2
-      }
+      "fwt": "28383b0320ce43558a7912158229845a",
+      "orderno": "gz202003180037",
+      "title": "工单",
+      "id": 1
+    },
+    {
+      "fwt": "28383b0320ce43558a7912158229845a",
+      "orderno": "gz202003180037",
+      "title": "工单",
+      "id": 2
+    },
+    {
+      "fwt": "28383b0320ce43558a7912158229845a",
+      "orderno": "gz202003180037",
+      "title": "工单",
+      "id": 3
+    },
+    {
+      "fwt": "28383b0320ce43558a7912158229845a",
+      "orderno": "gz202003180037",
+      "title": "工单",
+      "id": 4
+    }
     ],
     tabs: [{
-        name: "新任务",
-        count: 0,
-        status: 10,
-        "id": 3
-      },
-      {
-        name: "待处理",
-        count: 0,
-        status: 20
-      },
-      {
-        name: "处理中",
-        count: 0,
-        status: 30
-      },
-      {
-        name: "已完成",
-        count: "",
-        status: 40
-      }
+      name: "新任务",
+      count: 0,
+      status: 10,
+      "id": 3
+    },
+    {
+      name: "待处理",
+      count: 0,
+      status: 20
+    },
+    {
+      name: "处理中",
+      count: 0,
+      status: 30
+    },
+    {
+      name: "已完成",
+      count: "",
+      status: 40
+    }
     ]
   },
-
+  tabClick(e) {
+    let index = e.currentTarget.dataset.index;
+    this.setData({
+      activedIndex: index,
+      scrollTop: 0
+    })
+  },
 
   // 滑动模块
   swiperChange(e) {
     let current = e.detail.current;
     this.setData({
       activedIndex: current,
-      scrollLeft: current * 80
+      scrollLeft: current * 80,
+      scrollTop: 0
     })
     // this.pageNum = 1;
     // this.isFinish = false;
     // this.orderList = [];
-    wx.pageScrollTo({
-      scrollTop: 0
-    });
+
     // if (current == 0) { this.status = 10 }
     // else if (current == 1) { this.status = 20 }
     // else if (current == 2) { this.status = 30 }
@@ -67,7 +85,7 @@ Page({
     // this.getPage();
     // this.getCount();
   },
- 
+
 
   // onLoad() {
   //   this.resetPage();
@@ -130,10 +148,10 @@ Page({
 
     // const {data,code} = await getApp().request.post('url', true, true, '加载中...', param);
     // 若第二个参数为true，返回的结果统一处理
-    if(data){
+    if (data) {
       // code为100的情况的操作
       getApp.util.errorToast("加载完成");
-    } 
+    }
     // 若第二个参数为false，返回的结果再单独判断code
     // if(code == 100){
 

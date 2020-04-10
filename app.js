@@ -1,5 +1,10 @@
-var util = require("utils/util.js");
-var request = require("utils/request.js")
+// var request = require("utils/request.js")
+// var util = require("utils/util.js")
+//  var socket = require("utils/socket.js")
+
+import request from "utils/request.js";
+import util from "utils/util.js";
+ import socket from "utils/socket.js";
 const updateManager = wx.getUpdateManager()
 
 //app.js
@@ -40,12 +45,16 @@ App({
   },
   data:{
     appId: "wxdf6c869d9dd7d5bf", 
-    baseURL: '',// 正式
+    baseURL: 'http://192.168.0.164:8077/',
     baseCodeUrl: '', 
+    wsURL: "ws://192.168.0.164:8077/websocket/"
   },
   onShow(){
     // request.js要获取App
-    request.init(this);
+    this.socket = new socket(this);
+    this.request = new request(this); 
+    console.log(this.request)
+    this.request.init(this);
 
 
     updateManager.onCheckForUpdate(function (res) {
@@ -107,7 +116,7 @@ App({
         if (res.data) {
           //将用户信息保存 
           getApp().globalData.userInfo = res.data;
-
+          getApp().socket.connectSocket(); // 进来界面打开scokect连接
           wx.switchTab({
             url: '/pages/home/index'
           })
@@ -155,5 +164,6 @@ App({
 
 
   util, // 公共方法
-  request// 请求方法
+  request // 请求方法
+ 
 })

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "detailmain": "./components/detailmain/index",
+    "detailprocess": "./components/detailprocess/index"
+  }
 }

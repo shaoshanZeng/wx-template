@@ -1,0 +1,6 @@
+<view class="none-box">
+  <view>
+    <image class="none-img" src="/images/none.png" />
+  </view>
+  <view class='none-tip'>暂无数据</view>
+</view>

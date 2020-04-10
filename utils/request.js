@@ -1,10 +1,9 @@
 var util = require("./util.js")
 
-class Request {
-  constructor(parms) {
-    this.withBaseURL = parms.withBaseURL
+export default class Request {
+  constructor(param) {
+    console.log(param)
   }
-
   // 获取app实例
   init(app) {
 
@@ -32,11 +31,12 @@ class Request {
     }
     return new Promise((resolve, reject) => {
       wx.request({
-        url: this.withBaseURL ? this.app.data.baseURL + url : this.app.data.baseURL1 + url,
+        url: this.app.data.baseURL + url,
         data,
         method: 'GET',
         header: header,
         success(res) {
+          console.log(res);
           const {
             data,
             code,
@@ -45,11 +45,11 @@ class Request {
           } = res.data;
 
           if (commonHandle) {
+            console.log("commonhandle")
             resolve(res.data);
           } else {
-
             if (code == '100') {
-              resolve(res.data);
+              resolve(data);
             } else {
               util.showMsg('提示', msg == null ? "未知错误" : msg, null, null);
             }
@@ -72,19 +72,19 @@ class Request {
       wx.showLoading({
         title: loadingText,
       })
-    } 
+    }
 
-    header["Content-Type"] = "application/x-www-form-urlencoded"; 
+    header["Content-Type"] = "application/x-www-form-urlencoded";
 
     if (this.app.globalData.userInfo) {
       header.userIds = this.app.globalData.userInfo.id;
       header.userId = this.app.globalData.userInfo.openid;
       header.userToken = this.app.globalData.userInfo.token;
-    } 
+    }
     return new Promise((resolve, reject) => {
 
       wx.request({
-        url: this.withBaseURL ? this.app.data.baseURL + url : this.app.data.baseURL1 + url,
+        url: this.app.data.baseURL + url,
         data,
         method: 'POST',
         header: header,
@@ -96,14 +96,14 @@ class Request {
             msg
           } = res.data;
 
-          if(commonHandle) {
+          if (commonHandle) {
             if (code == '100') {
-              resolve(res.data);
+              resolve(data);
             } else {
               util.showMsg('提示', msg == null ? "未知错误" : msg, null, null);
             }
-          }else{
-            resolve(res.data);
+          } else {
+            resolve(data);
           }
         },
         fail() {
@@ -118,17 +118,17 @@ class Request {
     })
   }
 
-// 提交表单
+  // 提交表单
   postForm(url, commonHandle, isLoading, loadingText, data) {
     if (isLoading) {
       wx.showLoading({
         title: loadingText,
       })
     }
-    data = JSON.stringify(data); 
-    header["Content-Type"] = "application/json"; 
+    data = JSON.stringify(data);
+    header["Content-Type"] = "application/json";
 
-    if (this.app.globalData.userInfo) { 
+    if (this.app.globalData.userInfo) {
       header.userIds = this.app.globalData.userInfo.id;
       header.userId = this.app.globalData.userInfo.openid;
       header.userToken = this.app.globalData.userInfo.token;
@@ -136,7 +136,7 @@ class Request {
     return new Promise((resolve, reject) => {
 
       wx.request({
-        url: this.withBaseURL ? this.app.data.baseURL + url : this.app.data.baseURL1 + url,
+        url: this.app.data.baseURL + url,
         data,
         method: 'POST',
         header: header,
@@ -150,12 +150,12 @@ class Request {
 
           if (commonHandle) {
             if (code == '100') {
-              resolve(res.data);
+              resolve(data);
             } else {
               util.showMsg('提示', msg == null ? "未知错误" : msg, null, null);
             }
           } else {
-            resolve(res.data);
+            resolve(data);
           }
         },
         fail() {
@@ -171,14 +171,5 @@ class Request {
   }
 
 }
-
-
-const request = new Request({
-  withBaseURL: true
-})
-
-
-
-
-
-module.exports = request
+// const request = new Request() 
+// module.exports = request
